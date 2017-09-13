@@ -14,6 +14,9 @@
 		84C6E45C1F6803CC002116CA /* ChineseChess.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84C6E45A1F6803CC002116CA /* ChineseChess.xcdatamodeld */; };
 		84C6E45E1F6803CC002116CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C6E45D1F6803CC002116CA /* Assets.xcassets */; };
 		84C6E4611F6803CC002116CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C6E45F1F6803CC002116CA /* LaunchScreen.storyboard */; };
+		84C6E46D1F68044D002116CA /* GlobalVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6E46C1F68044D002116CA /* GlobalVariable.m */; };
+		84C6E4721F68064E002116CA /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6E4711F68064E002116CA /* Board.m */; };
+		84C6E4771F68066E002116CA /* ChessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6E4761F68066E002116CA /* ChessCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,14 @@
 		84C6E45D1F6803CC002116CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84C6E4601F6803CC002116CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84C6E4621F6803CC002116CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C6E4691F680408002116CA /* COMMON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COMMON.h; sourceTree = "<group>"; };
+		84C6E46B1F68044D002116CA /* GlobalVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVariable.h; sourceTree = "<group>"; };
+		84C6E46C1F68044D002116CA /* GlobalVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariable.m; sourceTree = "<group>"; };
+		84C6E46E1F68047A002116CA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		84C6E4701F68064E002116CA /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
+		84C6E4711F68064E002116CA /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
+		84C6E4751F68066E002116CA /* ChessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChessCell.h; sourceTree = "<group>"; };
+		84C6E4761F68066E002116CA /* ChessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChessCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +71,12 @@
 		84C6E44D1F6803CC002116CA /* ChineseChess */ = {
 			isa = PBXGroup;
 			children = (
+				84C6E4781F680767002116CA /* Views */,
+				84C6E46F1F680632002116CA /* Module */,
+				84C6E46A1F680412002116CA /* GlobalVariable */,
+				84C6E4681F6803DC002116CA /* Common */,
 				84C6E4511F6803CC002116CA /* AppDelegate.h */,
 				84C6E4521F6803CC002116CA /* AppDelegate.m */,
-				84C6E4541F6803CC002116CA /* ViewController.h */,
-				84C6E4551F6803CC002116CA /* ViewController.m */,
 				84C6E4571F6803CC002116CA /* Main.storyboard */,
 				84C6E45D1F6803CC002116CA /* Assets.xcassets */,
 				84C6E45F1F6803CC002116CA /* LaunchScreen.storyboard */,
@@ -78,8 +91,62 @@
 			isa = PBXGroup;
 			children = (
 				84C6E44F1F6803CC002116CA /* main.m */,
+				84C6E46E1F68047A002116CA /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84C6E4681F6803DC002116CA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				84C6E4691F680408002116CA /* COMMON.h */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		84C6E46A1F680412002116CA /* GlobalVariable */ = {
+			isa = PBXGroup;
+			children = (
+				84C6E46B1F68044D002116CA /* GlobalVariable.h */,
+				84C6E46C1F68044D002116CA /* GlobalVariable.m */,
+			);
+			name = GlobalVariable;
+			sourceTree = "<group>";
+		};
+		84C6E46F1F680632002116CA /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				84C6E4741F68065D002116CA /* ChessCell */,
+				84C6E4731F680652002116CA /* Board */,
+			);
+			name = Module;
+			sourceTree = "<group>";
+		};
+		84C6E4731F680652002116CA /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				84C6E4701F68064E002116CA /* Board.h */,
+				84C6E4711F68064E002116CA /* Board.m */,
+			);
+			name = Board;
+			sourceTree = "<group>";
+		};
+		84C6E4741F68065D002116CA /* ChessCell */ = {
+			isa = PBXGroup;
+			children = (
+				84C6E4751F68066E002116CA /* ChessCell.h */,
+				84C6E4761F68066E002116CA /* ChessCell.m */,
+			);
+			name = ChessCell;
+			sourceTree = "<group>";
+		};
+		84C6E4781F680767002116CA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84C6E4541F6803CC002116CA /* ViewController.h */,
+				84C6E4551F6803CC002116CA /* ViewController.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,9 +221,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C6E4721F68064E002116CA /* Board.m in Sources */,
 				84C6E4561F6803CC002116CA /* ViewController.m in Sources */,
 				84C6E4531F6803CC002116CA /* AppDelegate.m in Sources */,
+				84C6E4771F68066E002116CA /* ChessCell.m in Sources */,
 				84C6E45C1F6803CC002116CA /* ChineseChess.xcdatamodeld in Sources */,
+				84C6E46D1F68044D002116CA /* GlobalVariable.m in Sources */,
 				84C6E4501F6803CC002116CA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

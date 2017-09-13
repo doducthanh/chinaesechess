@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PrefixHeader.pch"
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgBoard;
 
 @end
 
