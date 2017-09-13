@@ -11,6 +11,7 @@
 @interface ViewController ()<UIGestureRecognizerDelegate>{
     ChessCell *arrayChessCell[10][9];
     float heightCell;
+    float widthCell;
 }
 
 @end
@@ -23,25 +24,37 @@
     
     // init variable
     heightCell = 0;
-    
-    
+    widthCell = 0;
+    [self animation];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    heightCell = self.imgBoard.frame.size.height;
+    heightCell = self.imgBoard.frame.size.height/10;
+    widthCell = self.imgBoard.frame.size.width/9;
     // call function instance
     [self setupBoardChess];
     [self drawBoardChess];
 }
 
+- (void) animation{
+    self.imgBoard.transform = CGAffineTransformMakeScale(0.5, 0.5);
+    [UIView animateWithDuration:1 animations:^{
+        self.imgBoard.transform = CGAffineTransformMakeRotation(180);
+        
+        
+    } completion:^(BOOL finished) {
+        self.imgBoard.transform = CGAffineTransformMakeScale(1.0, 1.0);
+        self.imgBoard.transform = CGAffineTransformMakeTranslation(0.0, 0.0);
+    }];
+}
 #pragma mark config board chess
 - (void) setupBoardChess{
     for (int i = 0; i < 10; i++) {
         for ( int j = 0; j < 9; j++) {
             ChessCell *cellChess = [[ChessCell alloc] init];
-            cellChess.imageCell = [[UIImageView alloc] initWithFrame:CGRectMake(j * heightCell,  (9 - i) * heightCell, heightCell, heightCell)];
+            cellChess.imageCell = [[UIImageView alloc] initWithFrame:CGRectMake(j * widthCell,  (9 - i) * heightCell, widthCell, heightCell)];
             [self.imgBoard addSubview:cellChess.imageCell];
             arrayChessCell[i][j] = cellChess;
         }
@@ -51,21 +64,18 @@
     self.imgBoard.userInteractionEnabled = true;
     tapgesture.numberOfTapsRequired = 1;
     [self.imgBoard addGestureRecognizer:tapgesture];
-
 }
 
 - (void) drawBoardChess{
     for (int i = 0; i<10; i++) {
         for (int j = 0; j<9; j++) {
-            if (j%2 == 0) {
-                //arrayChessCell[i][j].imageCell.backgroundColor = [UIColor redColor];
-                [self.imgBoard addSubview:arrayChessCell[i][j].imageCell ];
-            }else{
-                arrayChessCell[i][j].imageCell.backgroundColor = [UIColor yellowColor];
-                [self.imgBoard addSubview:arrayChessCell[i][j].imageCell ];
+            if ((i+j)%2 == 0) {
+                arrayChessCell[i][j].imageCell.image = [UIImage imageNamed:@"btn_loadgame"];
             }
+            [self.imgBoard addSubview:arrayChessCell[i][j].imageCell ];
         }
     }
+    //arrayChessCell[2][0].imageCell.image = [UIImage imageNamed:@"btn_loadgame"];
 }
 
 - (void)tapRespone :(UITapGestureRecognizer *)sender{
